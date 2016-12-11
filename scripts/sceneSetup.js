@@ -2,8 +2,8 @@ var sceneSetup = (function () {
 
     "use strict";
 
-    var treeTexture=  THREE.ImageUtils.loadTexture('https://github.com/Rushi-Bhatt/Images/blob/master/content/tree.jpg'); //http://opengameart.org/node/8149
-    var texture = new THREE.TextureLoader().load( "https://github.com/Rushi-Bhatt/Images/blob/master/content/tree.jpg" );
+   // var treeTexture=  THREE.ImageUtils.loadTexture('https://github.com/Rushi-Bhatt/Images/blob/master/content/tree.jpg'); //http://opengameart.org/node/8149
+    var texture = new THREE.TextureLoader().load( "/Images/blob/master/content/tree.jpg" );
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.repeat.set( 4, 4 );
@@ -39,7 +39,7 @@ var sceneSetup = (function () {
 
         var board = new THREE.Mesh(
             new THREE.BoxGeometry(30, 15, 3),
-            new THREE.MeshLambertMaterial({ ambient: 0x003311 * support.getRand(0, 5)/*map: treeTexture*/ }),
+            new THREE.MeshLambertMaterial({ ambient: 0x003311 * support.getRand(0, 5),map: texture }),
             0
         );
 
