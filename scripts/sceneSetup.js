@@ -1,7 +1,9 @@
 var sceneSetup = (function () {
 
     "use strict";
-    var texture = new THREE.TextureLoader().load( "/content/tree.jpg" );
+    var loader = new THREE.TextureLoader();
+    loader.setCrossOrigin('');
+    var texture = loader.load( "/content/tree.jpg" );
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.repeat.set( 4, 4 );
