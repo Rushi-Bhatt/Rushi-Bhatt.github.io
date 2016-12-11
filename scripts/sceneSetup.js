@@ -2,8 +2,13 @@ var sceneSetup = (function () {
 
     "use strict";
 
-   // var treeTexture=  THREE.ImageUtils.loadTexture('https://github.com/Rushi-Bhatt/Images/blob/master/content/tree.jpg'); //http://opengameart.org/node/8149
-    var texture = new THREE.TextureLoader().load( "content/tree.jpg" );
+    
+  // var treeTexture=  THREE.ImageUtils.loadTexture('https://github.com/Rushi-Bhatt/Images/blob/master/content/tree.jpg'); //http://opengameart.org/node/8149
+    
+    var loader = new THREE.TextureLoader();
+    loader.setCrossOrigin('');
+    var texture=loader.load( '/content/tree.jpg' );
+    
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.repeat.set( 4, 4 );
