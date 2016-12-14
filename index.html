@@ -27,6 +27,44 @@
             font-family : arial;
             font-size: 36px;
         }
+        #control-panel-score {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: #ccc;
+            opacity: 0.5;
+            width: 350px;
+            height: 50px;
+        }
+
+        #control-panel-score {
+            margin-top: 10px;
+            font-family : arial;
+            font-size: 36px;
+        }
+        #control-panel-alert {
+            position: absolute;
+            left: 230px;
+            top: 110px;
+            background: #ccc;
+            opacity: 0.5;
+            width: 1000px;
+            height: 500px;
+        }
+
+        #control-panel-alert {
+            margin-top: 10px;
+            font-family : arial;
+            font-size: 36px;
+        }
+        #alertText{
+            font-size: 58px;
+            font-weight: 900;
+            text-align: center;
+            position: absolute;
+            top: 155px;
+            font-family: arial;
+        }
 
 
     </style>
@@ -37,6 +75,13 @@
 <div id="control-panel">
     <label>Lives:</label> <span id="numberOfLives">3</span>
 </div>
+<div id="control-panel-score">
+    <label>Score:</label> <span id="scoreValue">0</span>
+</div>
+<div id="control-panel-alert" style="display: none">
+     <span id="alertText"></span>
+</div>
+
 
 <div id="webgl-container">
 </div>
@@ -47,10 +92,7 @@
 <script src="scripts/sceneSetup.js"></script>
 <script src="scripts/gameControls.js"></script>
 <script src="scripts/enemy.js"></script>
-<script src="scripts/text.js"></script>
 <script src="scripts/player.js"></script>
-<script src="scripts/OrbitControls.js"></script>
-<script src="scripts/FlyControls.js"></script>
 <script src="scripts/myGame.js"></script>
 
 </body>

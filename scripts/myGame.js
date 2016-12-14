@@ -8,9 +8,10 @@ var game = (function () {
         width = window.innerWidth,
         height = window.innerHeight - 10,
         playerBox,
-        renderer = window.WebGLRenderingContext ?  new THREE.WebGLRenderer() : new THREE.CanvasRenderer() ,
+        renderer = new THREE.WebGLRenderer({antialias:true}), 
         playerActive = true,
         lives = 3,
+        score = 0,
         pBox,
         playerBox,
         orbits,
@@ -19,7 +20,8 @@ var game = (function () {
 
     renderer.setSize(width, height);
     renderer.setClearColor(0xE0EEEE);
-
+    renderer.shadowMapEnabled = true;
+    renderer.shadowMapType=THREE.PCFSoftShadowMap;
     document.getElementById("webgl-container").appendChild(renderer.domElement);
 
     camera = new THREE.PerspectiveCamera(
@@ -29,10 +31,9 @@ var game = (function () {
         900
     );
     scene.add(camera);
-    ///scene.fog = new THREE.Fog(0xE0EEEE, 250, 600);
+    scene.fog = new THREE.Fog(0xE0EEEE, 250, 600);
 
-    function init() {
-
+    function init() {   
         resetScene();
         sceneSetup.addSceneObjects();
         enemy.init();
@@ -52,18 +53,11 @@ var game = (function () {
     function startNewGame(){
         lives=3;
         document.getElementById("numberOfLives").innerHTML = lives;
+        score = 0;
+        document.getElementById("scoreValue").innerHTML = score;
 
     }
-    function removeLife() {
-        lives -= 1;
-        document.getElementById("numberOfLives").innerHTML = lives;
-
-        if (lives == 0) {
-            alert('game over');
-            startNewGame();
-        }
-    }
-
+    
     function render() {
 
         var delta = clock.getDelta();
@@ -77,12 +71,15 @@ var game = (function () {
         scene: scene,
         camera: camera,
         playerBox: playerBox,
+        renderer:renderer,
         init: init,
+        render:render,
         controls: controls,
         playerActive: playerActive,
         resetScene: resetScene,
         lives: lives,
-        removeLife: removeLife
+        score:score,
+        startNewGame:startNewGame
     }
 
 })();

@@ -16,8 +16,14 @@ var gameControls=(function(){
 
         if (e.keyCode == up) {
             player.moveZ(-increment);
+            game.score+=1;
+            document.getElementById("scoreValue").innerHTML = game.score;
         } else if (e.keyCode == down) {
             if(game.playerBox.position.z < 52){
+                if(game.score>0){
+                    game.score-=1;
+                    document.getElementById("scoreValue").innerHTML = game.score;
+                }
                 player.moveZ(increment);    
             }
         } else if (e.keyCode == left) {
