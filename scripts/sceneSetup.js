@@ -11,6 +11,7 @@ var sceneSetup = (function () {
     texture_road.wrapT = THREE.RepeatWrapping;
     texture_road.repeat.set( 4, 4 );
     var road = new THREE.Mesh(
+
             new THREE.BoxGeometry(2000, 1, 240),
             new THREE.MeshLambertMaterial({ map: texture_road }), //http://opengameart.org/sites/default/files/oga-textures/tunnel_road.jpg
             0
